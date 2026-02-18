@@ -1,6 +1,6 @@
 # Python
-spark-env/
 .venv/
+spark-env/
 __pycache__/
 *.pyc
 
