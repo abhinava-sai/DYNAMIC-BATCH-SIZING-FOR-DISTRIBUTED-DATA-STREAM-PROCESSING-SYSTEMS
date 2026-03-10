@@ -4,7 +4,9 @@ import random
 
 INGESTION_URL = "http://localhost:8000/events"
 
+
 def send_event():
+
     event = {
         "user_id": random.randint(1, 1000),
         "event_type": random.choice(["click", "view", "purchase"]),
@@ -12,18 +14,28 @@ def send_event():
     }
 
     try:
-        response = requests.post(INGESTION_URL, json=event, timeout=2)
+
+        response = requests.post(INGESTION_URL, json=event)
+
         print(f"Sent: {event} | Status: {response.status_code}")
+
     except Exception as e:
-        print(f"Ingestion service unreachable. Retrying... Error: {e}")
+
+        print("Error sending event:", e)
 
 
-def main():
-    print("System Controller Started...")
+def run_controller():
+
+    print("🚀 System Controller Started")
+
     while True:
+
         send_event()
-        time.sleep(2)
+
+        time.sleep(1)
 
 
 if __name__ == "__main__":
-    main()
+
+    run_controller()
+

@@ -35,6 +35,7 @@ services:
     ports:
       - "7077:7077"
       - "8080:8080"
+      - "4040:4040"
     volumes:
       - ../streaming:/opt/spark-apps
     command: tail -f /dev/null
